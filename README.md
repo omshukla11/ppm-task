@@ -8,3 +8,6 @@ Steps:
 4) Activate the virtual environment and run the command "pip install -r requirements.txt"
 5) After the installations are complete run the command "python manage.py migrate"
 6) Now you are all setup to code.
+
+
+![image](https://user-images.githubusercontent.com/80087182/168752627-d8f2044a-6a6c-4c7e-ad06-1e9436b3908e.png)
