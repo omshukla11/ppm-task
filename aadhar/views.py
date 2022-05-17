@@ -18,7 +18,7 @@ class CustomPermission(permissions.BasePermission):
 
 class AadharFilterAPI(mixins.ListModelMixin, generics.GenericAPIView):
     serializer_class = AadharSerializer
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
     def get_queryset(self):
         try:
             if(self.kwargs['act']=='active'):
@@ -37,17 +37,17 @@ class AadharFilterAPI(mixins.ListModelMixin, generics.GenericAPIView):
 class AadharAPI(generics.ListCreateAPIView):
     serializer_class = AadharSerializer
     queryset = Aadhar.objects.all()
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
 
 
 class AddressAPI(generics.ListCreateAPIView):
     serializer_class = AddressSerializer
     queryset = Address.objects.all()
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
 
 class AddressDetailAPI(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
     serializer_class = AddressSerializer
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
     queryset = Address.objects.all()
 
     def get(self, request, *args, **kwargs):
@@ -64,11 +64,11 @@ class AddressDetailAPI(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixin
 class QualificationAPI(generics.ListCreateAPIView):
     serializer_class = QualificationSerializer
     queryset = Qualification.objects.all()
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
 
 class QualificationDetailAPI(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
     serializer_class = QualificationSerializer
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
     queryset = Address.objects.all()
 
     def get(self, request, *args, **kwargs):
@@ -83,11 +83,11 @@ class QualificationDetailAPI(mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
 class BankAPI(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     serializer_class = BankSerializer
     queryset = Bank.objects.all()
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
 
 class BankDetailAPI(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
     serializer_class = BankSerializer
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
     queryset = Address.objects.all()
 
     def get(self, request, *args, **kwargs):
@@ -102,11 +102,11 @@ class BankDetailAPI(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.D
 class PerDetAPI(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     serializer_class = PersonalDetailsSerializer
     queryset = PersonalDetails.objects.all()
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
 
 class PerDetAPIRUD(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.DestroyModelMixin, generics.GenericAPIView):
     serializer_class = PersonalDetailsSerializer
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
     queryset = PersonalDetails.objects.all()
 
     def get(self, request, *args, **kwargs):
@@ -120,7 +120,7 @@ class PerDetAPIRUD(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, mixins.De
 
 class AllInfoAPI(generics.ListAPIView):
     serializer_class = AllInfoSerializer
-    # permission_classes = [CustomPermission]
+    permission_classes = [CustomPermission]
 
     def get_queryset(self):
         aadhar = Aadhar.objects.get(aadhar_no = self.kwargs['adh'])
